@@ -165,7 +165,7 @@ resource "aws_instance" "Ec2-1" {
     associate_public_ip_address = "true"
     vpc_security_group_ids = [aws_security_group.Sg-1.id]
     subnet_id = aws_subnet.subnet-1.id
-    user_data = "./apache.sh"
+    user_data = file("apache.sh")
 
     tags = {
         Name = "Ec-1"
@@ -179,7 +179,7 @@ resource "aws_instance" "Ec2-2" {
     associate_public_ip_address = "true"
     vpc_security_group_ids = [aws_security_group.Sg-2.id]
     subnet_id = aws_subnet.subnet-2.id
-    user_data = "./apache.sh"
+    user_data = file("apache.sh")
 
     tags = {
         Name = "Ec-2"
